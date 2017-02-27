@@ -62,6 +62,10 @@ class MyTableViewController: UITableViewController, UISearchResultsUpdating {
         self.tableView.tableHeaderView = self.searchController.searchBar
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -198,6 +202,14 @@ class MyTableViewController: UITableViewController, UISearchResultsUpdating {
 
             }
         }
+        else if segue.identifier == "AddNewItem" {
+            let addVC = segue.destination as! AddViewController
+            addVC.newHikingItem = addData
+        }
+    }
+    
+    func addData(newItem : HikingListObject) {
+        MyHikingList.append(newItem)
     }
     
     func filterContentForSearchText(searchText: String) {
