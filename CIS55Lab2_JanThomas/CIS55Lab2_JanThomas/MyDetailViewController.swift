@@ -14,19 +14,17 @@ class MyDetailViewController: UIViewController {
     @IBOutlet weak var LabelItem: UILabel!
     @IBOutlet weak var ImageItem: UIImageView!
 
-    var LabelItemText : String!
-    var LabelDetailText : String!
-    var ImageItemFile : UIImage!
-
-    override func viewDidLoad() {
+    var myHikingList : HikingListObject!
+    
+     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.LabelItem.text = self.LabelItemText
-        self.LabelDetail.text = self.LabelDetailText
-        self.ImageItem.image = self.ImageItemFile
+        self.LabelItem.text = self.myHikingList.hikingLocations
+        self.LabelDetail.text = self.myHikingList.hikingDetail
+        self.ImageItem.image = self.myHikingList.hikingImages
         
-        navigationItem.title = self.LabelItem.text
+        navigationItem.title = self.myHikingList.hikingLocations
         
     }
 
